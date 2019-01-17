@@ -2,7 +2,7 @@ var friendsArray = [
 
     {
         "name":"carrie",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://www.fillmurray.com/g/155/300",
         "scores":[
             5,
             1,
@@ -19,7 +19,7 @@ var friendsArray = [
 
       {
         "name":"barry",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://www.fillmurray.com/460/300",
         "scores":[
             4,
             3,
@@ -35,7 +35,7 @@ var friendsArray = [
       },
       {
         "name":"harry",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://www.fillmurray.com/140/100",
         "scores":[
             5,
             1,
@@ -52,7 +52,7 @@ var friendsArray = [
 
       {
         "name":"larry",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo":"https://www.fillmurray.com/140/200",
         "scores":[
             5,
             1,

@@ -167,9 +167,9 @@ $(document).ready(function() {
             });
             return isValid;
         }
-        //if everything is filled
+       
         if (validateForm() == true) {
-            //creates a new friend from the values submitted
+            //creates a new friend 
             var newFriend = {
                 name: $('#name').val().trim(),
                 profilePic: $('#photo').val().trim(),
@@ -188,13 +188,14 @@ $(document).ready(function() {
             };
             //Grabs current URL of website
             var currentURL = window.location.origin;
-            //AJAX posts the data to friends API.
+            //posts the data to friends.js.
             $.post(currentURL + "/api/friends", newFriend, function(data) {
-                //Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                $("#matchName").text(data.name);
-                $("#matchPic").attr("src", data.profilePic);
+                //Grab the result to show photo and name
+                console.log(data);
+                $("#matchName").text(data.matchName);
+                $("#matchPic").attr("src", data.matchImage);
             });
-            // Show the modal with the best match
+            // Show the best match
                 $('.modal').modal();
             //clear form after submission
             $('#name').val("");

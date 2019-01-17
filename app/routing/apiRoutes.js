@@ -11,25 +11,40 @@ var initializeAPI = function(app){
     // ===========================================================
     
     app.get("/api/friends", function (req, res) {
-        return res.join(allSurveySubmissions)
+        return res.json(allSurveySubmissions)
+        
     
     });
         
     
-    
     app.post("/api/friends", function (req, res) {
         var friendData = req.body;
-        console.log(friendData);
-        //route the data to a reservation if the top 5 requests, or waitlist if after
-        if (friendData.length) friendData.push(allSurveySubmissions)
-        else{
-            compatibleFriends.push(matches);
+
+        var userResponses = friendData.scores;
+        console.log('userResponses = ' + userResponses);
+
+        var matchName = '';
+        var matchImage = '';
+        var totalDifference = 10000;
+
+        for(var i = 0; i < allSurveySubmissions.length; i++){
+            var difference = 0;
+            for (var j = 0; j < userResponses.length; j++){
+                difference += Math.abs(allSurveySubmissions[i].scores[j] - userResponses[j]);
+            }
+
+            if (difference < totalDifference){
+
+                totalDifference = difference;
+                matchName = allSurveySubmissions[i].name;
+                matchImage = allSurveySubmissions[i].photo;
+            }
         }
-    
-        res.end();
-    
-    });
+
+        allSurveySubmissions.push(friendData);
+        res.json({status: 'OK', matchName, matchImage: matchImage});
+  
       
-}
+})};
 
 module.exports = initializeAPI;
