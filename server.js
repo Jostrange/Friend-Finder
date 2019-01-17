@@ -1,11 +1,11 @@
 // Pull in required dependencies
-var htmlRoutes = require('express');
+var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 
 // Configure the Express application
 var app = express();
-var PORT = process.env.PORT;
+var PORT = process.env.PORT || 3000;
 
 // public directory css
 app.use(express.static(path.join(__dirname, '/app/public')));
@@ -16,8 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 
 // application routes
-require(path.join(__dirname, '/routing/apiRoutes'))(app);
-require(path.join(__dirname, '/routing/htmlRoutes'))(app);
+require(path.join(__dirname, 'app/routing/apiRoutes.js'))(app);
+require(path.join(__dirname, 'app/routing/htmlRoutes.js'))(app);
 
 // Start listening on PORT
 app.listen(PORT, function() {
